@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#100e14">
+  <meta name="description" content="LeeCraftsSites creates creative, mobile-friendly websites for businesses and individuals in South Africa. Request a website quote today.">
+  <title>LeeCraftsSites | Websites Made With Creativity</title>
+  <style>
+    :root {
+      --bg: #100e14;
+      --panel: #1b1722;
+      --panel-2: #211b2a;
+      --purple: #a96be0;
+      --purple-deep: #7540a2;
+      --olive: #929d5b;
+      --text: #f8f5fb;
+      --muted: #c0b7c9;
+      --line: rgba(207, 174, 235, .18);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(1120px, 90%); margin: 0 auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(16, 14, 20, .94); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-wrap {
+      min-height: 72px; display: flex; align-items: center;
+      justify-content: space-between; gap: 18px;
+    }
+    .brand { font-size: 1.28rem; font-weight: 850; letter-spacing: -.7px; }
+    .brand span { color: var(--purple); }
+    .nav-links { display: flex; align-items: center; gap: 22px; }
+    .nav-links a { color: var(--muted); font-size: .93rem; }
+    .nav-links a:hover { color: var(--olive); }
+    .menu-toggle {
+      display: none; color: var(--text); background: transparent;
+      border: 1px solid var(--line); border-radius: 10px;
+      padding: 8px 12px; font-size: 1.25rem;
+    }
+    .hero {
+      position: relative; overflow: hidden; padding: 108px 0 100px;
+      background:
+        radial-gradient(ellipse at 78% 22%, rgba(117,64,162,.36), transparent 38%),
+        radial-gradient(ellipse at 12% 92%, rgba(146,157,91,.20), transparent 34%);
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 45px; align-items: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px; color: var(--olive);
+      border: 1px solid rgba(146,157,91,.55); border-radius: 99px;
+      padding: 7px 13px; font-size: .76rem; font-weight: 750; letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    h1 { font-size: clamp(2.8rem, 7vw, 5.6rem); line-height: 1.02; letter-spacing: -3px; margin: 24px 0; }
+    h1 span, .accent { color: var(--purple); }
+    .hero p { max-width: 620px; color: var(--muted); font-size: 1.1rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
+    .btn {
+      display: inline-flex; justify-content: center; align-items: center; gap: 8px;
+      min-height: 48px; padding: 12px 20px; border-radius: 11px;
+      border: 1px solid var(--purple); font-weight: 750; cursor: pointer;
+      transition: transform .2s, background .2s, border-color .2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--purple); color: #160f1c; }
+    .btn-primary:hover { background: #bd8be8; }
+    .btn-secondary { background: transparent; color: var(--text); }
+    .btn-secondary:hover { border-color: var(--olive); background: rgba(146,157,91,.12); }
+    .hero-card {
+      padding: 28px; border: 1px solid var(--line); border-radius: 24px;
+      background: linear-gradient(145deg, rgba(169,107,224,.17), rgba(146,157,91,.09));
+      box-shadow: 0 24px 70px rgba(0,0,0,.24);
+    }
+    .hero-card .monogram {
+      width: 76px; height: 76px; display: grid; place-items: center;
+      border-radius: 22px; background: linear-gradient(135deg, var(--purple), var(--purple-deep));
+      color: white; font-size: 1.7rem; font-weight: 900; margin-bottom: 24px;
+    }
+    .hero-card h2 { margin: 0 0 8px; font-size: 1.5rem; }
+    .hero-card p { margin: 0; font-size: .96rem; }
+    .mini-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+    .mini-tags span { border-radius: 99px; padding: 6px 10px; font-size: .78rem; background: rgba(16,14,20,.55); color: var(--muted); }
+    section { padding: 82px 0; }
+    .section-heading { max-width: 680px; margin: 0 auto 42px; text-align: center; }
+    .section-heading h2 { font-size: clamp(2rem, 4.5vw, 3.1rem); line-height: 1.12; letter-spacing: -1.3px; margin: 0 0 13px; }
+    .section-heading p { color: var(--muted); margin: 0; }
+    .soft-section { background: #17131c; border-top: 1px solid rgba(255,255,255,.035); border-bottom: 1px solid rgba(255,255,255,.035); }
+    .about-copy { max-width: 820px; margin: auto; text-align: center; color: var(--muted); font-size: 1.04rem; }
+    .about-copy strong { color: var(--text); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .card {
+      background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 25px; height: 100%; transition: transform .2s, border-color .2s;
+    }
+    .card:hover { transform: translateY(-4px); border-color: rgba(169,107,224,.65); }
+    .icon {
+      width: 48px; height: 48px; display: grid; place-items: center;
+      border-radius: 14px; background: rgba(169,107,224,.14);
+      color: var(--purple); font-size: 1.35rem; margin-bottom: 17px;
+    }
+    .card h3 { margin: 0 0 9px; font-size: 1.18rem; }
+    .card p { color: var(--muted); margin: 0; font-size: .95rem; }
+    .price-card { display: flex; flex-direction: column; }
+    .price-card.featured { border-color: var(--purple); background: linear-gradient(160deg, #2b2035, var(--panel)); }
+    .package-label { color: var(--olive); font-size: .76rem; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; }
+    .price { font-size: 2.25rem; font-weight: 900; margin: 12px 0 3px; letter-spacing: -1px; }
+    .price-note { color: var(--muted); font-size: .85rem; }
+    .feature-list { list-style: none; padding: 0; margin: 22px 0 25px; color: var(--muted); flex: 1; }
+    .feature-list li { padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .feature-list li::before { content: "✓"; color: var(--olive); font-weight: 900; margin-right: 9px; }
+    .package-note { margin-top: 24px; color: var(--muted); font-size: .9rem; text-align: center; }
+    .concept {
+      min-height: 205px; display: flex; flex-direction: column; justify-content: flex-end;
+      background: radial-gradient(circle at 85% 18%, rgba(169,107,224,.35), transparent 42%), var(--panel);
+    }
+    .concept:nth-child(2) { background: radial-gradient(circle at 85% 18%, rgba(146,157,91,.35), transparent 42%), var(--panel); }
+    .concept:nth-child(3) { background: radial-gradient(circle at 85% 18%, rgba(117,64,162,.42), transparent 42%), var(--panel); }
+    .concept small { color: var(--olive); font-weight: 800; letter-spacing: 1px; margin-bottom: 8px; }
+    .steps .card { position: relative; }
+    .step-no { color: var(--purple); font-size: .8rem; font-weight: 900; letter-spacing: 1px; margin-bottom: 12px; }
+    .contact-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 28px; align-items: start; }
+    .contact-details p { color: var(--muted); }
+    .contact-link { display: block; margin: 14px 0; color: var(--text); overflow-wrap: anywhere; }
+    .contact-link span { color: var(--olive); margin-right: 8px; }
+    .form-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 27px; }
+    .form-card h3 { margin: 0 0 5px; font-size: 1.35rem; }
+    .form-intro { margin: 0 0 18px; color: var(--muted); font-size: .9rem; }
+    label { display: block; margin: 14px 0 6px; font-size: .9rem; font-weight: 650; }
+    input, select, textarea {
+      display: block; width: 100%; color: var(--text); background: #100d14;
+      border: 1px solid #493956; border-radius: 10px; padding: 13px 14px; outline: none;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--purple); box-shadow: 0 0 0 3px rgba(169,107,224,.12); }
+    select option { background: #17131c; }
+    textarea { min-height: 120px; resize: vertical; }
+    .form-card button { width: 100%; margin-top: 20px; }
+    .small-print { color: var(--muted); font-size: .78rem; margin: 12px 0 0; }
+    .legal-copy { color: var(--muted); max-width: 900px; margin: auto; }
+    .legal-copy h3 { color: var(--text); margin-top: 25px; }
+    footer { padding: 35px 0; background: #0a090d; border-top: 1px solid var(--line); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .footer-inner p { margin: 5px 0; color: var(--muted); font-size: .85rem; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 17px; color: var(--muted); font-size: .88rem; }
+    .whatsapp-float {
+      position: fixed; right: 18px; bottom: 18px; z-index: 40;
+      background: var(--olive); color: #12140c; border-radius: 99px;
+      padding: 12px 17px; font-weight: 850; box-shadow: 0 8px 28px rgba(0,0,0,.35);
+    }
+    .notice { color: var(--muted); font-size: .85rem; margin-top: 12px; }
+    @media (max-width: 850px) {
+      .hero-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-card { max-width: 520px; }
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; position: absolute; top: 71px; left: 0; right: 0; padding: 18px 5%; background: #15111a; border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; gap: 0; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 11px 0; }
+      .menu-toggle { display: inline-block; }
+    }
+    @media (max-width: 580px) {
+      .hero { padding: 76px 0 70px; }
+      h1 { letter-spacing: -2px; }
+      section { padding: 65px 0; }
+      .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+      .whatsapp-float { right: 12px; bottom: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="LeeCraftsSites home">LeeCrafts<span>Sites.</span></a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#packages">Packages</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">South African web design</span>
+          <h1>Websites made with <span>creativity.</span></h1>
+          <p>Give your business a professional place to shine online. LeeCraftsSites creates thoughtful, attractive and mobile-friendly websites shaped around your goals, your brand and your ideas.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#contact">Request a website quote</a>
+            <a class="btn btn-secondary" href="#services">Explore services</a>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <div class="monogram" aria-hidden="true">LCS</div>
+          <h2>Make your first impression count.</h2>
+          <p>Clear design. Helpful information. A smooth experience on phones, tablets and computers.</p>
+          <div class="mini-tags"><span>Creative design</span><span>Mobile-friendly</span><span>Personal service</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="soft-section" id="about">
+      <div class="container">
+        <div class="section-heading">
+          <h2>A little about <span class="accent">LeeCraftsSites</span></h2>
+          <p>Personal creativity with a professional purpose.</p>
+        </div>
+        <div class="about-copy">
+          <p>Hi, I'm <strong>Lee</strong>, the person behind LeeCraftsSites. I believe every business and individual deserves an online presence that feels welcoming, looks polished and makes it easy for people to understand what they offer.</p>
+          <p>Whether you need a simple landing page, a website for your business or a fresh redesign, we'll start with your ideas and build a design around your needs. Every project is discussed and quoted before work begins.</p>
+          <p><strong>Based in South Africa. Working with creativity.</strong></p>
+          <div class="actions" style="justify-content:center">
+            <a class="btn btn-primary" href="#contact">Let's discuss your project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-heading">
+          <h2>What we <span class="accent">create</span></h2>
+          <p>Website services for ideas, people and growing businesses.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card"><div class="icon">✦</div><h3>Business websites</h3><p>Professional websites that introduce your business, explain your services and help customers get in touch.</p></article>
+          <article class="card"><div class="icon">◇</div><h3>Landing pages</h3><p>Focused single-page websites for a service, product, campaign or business launch.</p></article>
+          <article class="card"><div class="icon">↻</div><h3>Website redesigns</h3><p>A refreshed look and improved layout for an existing website that needs a new direction.</p></article>
+          <article class="card"><div class="icon">♡</div><h3>Personal websites</h3><p>Online spaces for portfolios, personal brands, creative work and special projects.</p></article>
+          <article class="card"><div class="icon">▣</div><h3>Responsive layouts</h3><p>Layouts designed to adapt to mobile phones, tablets and desktop screens.</p></article>
+          <article class="card"><div class="icon">✎</div><h3>Custom design</h3><p>Colours, sections and visual details selected to suit your brand and preferred style.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-section" id="packages">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Choose your <span class="accent">package</span></h2>
+          <p>Clear starting packages. Final scope and quote are confirmed before work begins.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card price-card">
+            <div class="package-label">Starter</div>
+            <div class="price">R2,000</div>
+            <div class="price-note">A simple online starting point</div>
+            <ul class="feature-list">
+              <li>One-page website</li>
+              <li>Mobile-friendly layout</li>
+              <li>About and contact sections</li>
+              <li>Social media link area</li>
+              <li>2 revisions</li>
+            </ul>
+            <a class="btn btn-secondary" href="#contact" data-package="Starter">Choose Starter</a>
+          </article>
+          <article class="card price-card featured">
+            <div class="package-label">Business · Popular choice</div>
+            <div class="price">R3,000</div>
+            <div class="price-note">For businesses ready to grow online</div>
+            <ul class="feature-list">
+              <li>Custom multi-section website</li>
+              <li>Services and pricing sections</li>
+              <li>Contact and WhatsApp links</li>
+              <li>Mobile-friendly layout</li>
+              <li>2 revisions</li>
+            </ul>
+            <a class="btn btn-primary" href="#contact" data-package="Business">Choose Business</a>
+          </article>
+          <article class="card price-card">
+            <div class="package-label">Premium</div>
+            <div class="price">R4,000</div>
+            <div class="price-note">For a more tailored website project</div>
+            <ul class="feature-list">
+              <li>Custom website design</li>
+              <li>Multiple-page project scope</li>
+              <li>Additional tailored sections</li>
+              <li>Mobile-friendly layout</li>
+              <li>2 revisions</li>
+            </ul>
+            <a class="btn btn-secondary" href="#contact" data-package="Premium">Choose Premium</a>
+          </article>
+        </div>
+        <p class="package-note">All prices are in South African rand (ZAR). Larger features, extra pages, domain registration, hosting add-ons, paid services and ongoing maintenance may require a separate quote. Delivery time depends on project size and receipt of all required content. Payment is by EFT / bank transfer, with payment arrangements confirmed in writing before work starts.</p>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Design <span class="accent">directions</span></h2>
+          <p>Example concepts showing different styles LeeCraftsSites can explore.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card concept"><small>CONCEPT STYLE 01</small><h3>Beauty & lifestyle</h3><p>An elegant, soft visual direction for a beauty brand or salon.</p></article>
+          <article class="card concept"><small>CONCEPT STYLE 02</small><h3>Local business</h3><p>A clear, confident layout for a service-based small business.</p></article>
+          <article class="card concept"><small>CONCEPT STYLE 03</small><h3>Personal portfolio</h3><p>A creative online home for a freelancer, maker or entrepreneur.</p></article>
+        </div>
+        <p class="notice">These are design concepts, not completed client projects or customer testimonials.</p>
+      </div>
+    </section>
+
+    <section class="soft-section steps" id="process">
+      <div class="container">
+        <div class="section-heading">
+          <h2>How it <span class="accent">works</span></h2>
+          <p>A simple process from first message to finished website.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card"><div class="step-no">STEP 01</div><h3>Tell me your idea</h3><p>Share what your business does, what you need and the style you have in mind.</p></article>
+          <article class="card"><div class="step-no">STEP 02</div><h3>Confirm the quote</h3><p>We'll agree on the project scope, price, content, payment arrangements and timeline before work begins.</p></article>
+          <article class="card"><div class="step-no">STEP 03</div><h3>Design and launch</h3><p>Your website is prepared for review, revisions and launch once the agreed work is approved.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Let's create something <span class="accent">beautiful.</span></h2>
+          <p>Tell me what you have in mind and request a website quote.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-details">
+            <h2>Let's talk about your project.</h2>
+            <p>Have a business to launch, a website to refresh or an idea you'd love to bring online? Send me a message.</p>
+            <a class="contact-link" href="mailto:leecraftssites@gmail.com"><span>✉</span>leecraftssites@gmail.com</a>
+            <a class="contact-link" href="tel:+27769308845"><span>☎</span>076 930 8845</a>
+            <a class="contact-link" href="https://wa.me/27769308845" target="_blank" rel="noopener"><span>◉</span>Chat on WhatsApp</a>
+            <p>Based in South Africa · Communication in English</p>
+          </div>
+          <form class="form-card" id="quoteForm">
+            <h3>Request a website quote</h3>
+            <p class="form-intro">Complete the details below. Your message will open in WhatsApp for you to review and send.</p>
+            <label for="customerName">Your name *</label>
+            <input id="customerName" name="customerName" type="text" autocomplete="name" required maxlength="80" placeholder="Your full name">
+            <label for="customerEmail">Email address *</label>
+            <input id="customerEmail" name="customerEmail" type="email" autocomplete="email" required maxlength="120" placeholder="you@example.com">
+            <label for="service">What do you need? *</label>
+            <select id="service" name="service" required>
+              <option value="">Choose a service</option>
+              <option>Starter website — R2,000</option>
+              <option>Business website — R3,000</option>
+              <option>Premium website — R4,000</option>
+              <option>Website redesign</option>
+              <option>Other custom project</option>
+            </select>
+            <label for="budget">Approximate budget</label>
+            <select id="budget" name="budget">
+              <option>Not sure yet</option>
+              <option>R2,000</option>
+              <option>R3,000</option>
+              <option>R4,000</option>
+              <option>More than R4,000</option>
+            </select>
+            <label for="projectDetails">Tell me about your project *</label>
+            <textarea id="projectDetails" name="projectDetails" required maxlength="1500" placeholder="What does your business do, and what would you like your website to include?"></textarea>
+            <button class="btn btn-primary" type="submit">Send quote request on WhatsApp</button>
+            <p class="small-print">WhatsApp will open with your enquiry prepared. Please press Send in WhatsApp to deliver it. Your details are not stored by this website.</p>
+            <p class="notice" id="formNotice" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-section" id="privacy">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Privacy <span class="accent">notice</span></h2>
+          <p>A simple explanation of the enquiry form.</p>
+        </div>
+        <div class="legal-copy">
+          <p>The quote form uses information you choose to enter, such as your name, email address, requested service and project description. When you submit the form, your device opens WhatsApp with that information in a message addressed to LeeCraftsSites. You choose whether to send it.</p>
+          <p>This website does not have its own database and does not save form submissions. If you send a WhatsApp message or email, that communication is handled by the relevant service and subject to its own privacy practices. Please do not include passwords, banking details or other sensitive information in an enquiry.</p>
+          <p>You can contact LeeCraftsSites at leecraftssites@gmail.com with questions about an enquiry.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="terms">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Service <span class="accent">terms</span></h2>
+          <p>Basic information for prospective clients.</p>
+        </div>
+        <div class="legal-copy">
+          <h3>Quotes and project scope</h3>
+          <p>Package prices are starting prices for the services described. The final scope, deliverables, price and timeline must be agreed in writing before a project begins. Work outside the agreed scope may require an additional quote.</p>
+          <h3>Payment</h3>
+          <p>Payment is by EFT / bank transfer. The payment amount, due dates and any deposit arrangement will be confirmed with the client in writing before work starts. Do not send payment until you have received and accepted the project quote.</p>
+          <h3>Revisions and timing</h3>
+          <p>Each listed package includes two revisions. A revision means a reasonable adjustment to the agreed design; new features or a change in project scope may be quoted separately. Delivery time depends on project size and how quickly the required content and feedback are supplied.</p>
+          <h3>Third-party costs and launch</h3>
+          <p>Domain registration, paid hosting, premium assets, subscriptions and other third-party services are not included unless specifically stated in the written quote. The client and LeeCraftsSites should agree who owns and manages any accounts required for launch.</p>
+          <h3>Acceptance</h3>
+          <p>A project only proceeds once the client has reviewed and accepted the written quote and project arrangements. These general website notes do not replace a project-specific agreement.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <a class="brand" href="#home">LeeCrafts<span>Sites.</span></a>
+        <p>Websites made with creativity.</p>
+        <p>© <span id="year"></span> LeeCraftsSites. All rights reserved.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#privacy">Privacy notice</a>
+        <a href="#terms">Service terms</a>
+        <a href="mailto:leecraftssites@gmail.com">Email Lee</a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/27769308845" target="_blank" rel="noopener" aria-label="Chat with LeeCraftsSites on WhatsApp">WhatsApp Lee</a>
+
+  <script>
+    "use strict";
+
+    const BUSINESS_WHATSAPP = "27769308845";
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    const quoteForm = document.getElementById("quoteForm");
+    const formNotice = document.getElementById("formNotice");
+
+    document.getElementById("year").textContent = String(new Date().getFullYear());
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    document.querySelectorAll("[data-package]").forEach(function (link) {
+      link.addEventListener("click", function () {
+        const packageName = link.getAttribute("data-package");
+        const serviceSelect = document.getElementById("service");
+        const matchingOption = Array.from(serviceSelect.options).find(function (option) {
+          return option.textContent.toLowerCase().startsWith(packageName.toLowerCase());
+        });
+        if (matchingOption) {
+          serviceSelect.value = matchingOption.value;
+        }
+      });
+    });
+
+    quoteForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      if (!quoteForm.reportValidity()) {
+        return;
+      }
+
+      const customerName = document.getElementById("customerName").value.trim();
+      const customerEmail = document.getElementById("customerEmail").value.trim();
+      const service = document.getElementById("service").value;
+      const budget = document.getElementById("budget").value;
+      const projectDetails = document.getElementById("projectDetails").value.trim();
+
+      const messageLines = [
+        "NEW WEBSITE QUOTE REQUEST - LEECRAFTSSITES",
+        "",
+        "Name: " + customerName,
+        "Email: " + customerEmail,
+        "Service: " + service,
+        "Budget: " + budget,
+        "Project details: " + projectDetails
+      ];
+
+      const whatsappMessage = messageLines.join(String.fromCharCode(10));
+      const whatsappUrl = "https://wa.me/" + BUSINESS_WHATSAPP + "?text=" + encodeURIComponent(whatsappMessage);
+
+      formNotice.textContent = "Opening WhatsApp. Please review your enquiry and press Send there.";
+      const newWindow = window.open(whatsappUrl, "_blank");
+
+      if (!newWindow) {
+        window.location.href = whatsappUrl;
+      }
+    });
+  </script>
+</body>
+</html>
